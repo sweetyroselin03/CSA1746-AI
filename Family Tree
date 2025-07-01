@@ -1,0 +1,7 @@
+father(john, alice).
+father(john, bob).
+mother(mary, alice).
+mother(mary, bob).
+
+parent(X, Y) :- father(X, Y); mother(X, Y).
+sibling(X, Y) :- parent(Z, X), parent(Z, Y), X \= Y.
