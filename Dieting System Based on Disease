@@ -1,0 +1,5 @@
+diet(diabetes, low_sugar).
+diet(hypertension, low_salt).
+diet(obesity, low_fat).
+
+suggest_diet(Disease, Diet) :- diet(Disease, Diet).
