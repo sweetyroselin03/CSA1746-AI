@@ -1,0 +1,15 @@
+at(monkey, door).
+at(banana, ceiling).
+has(monkey, nothing).
+
+can_get_banana :- 
+    at(monkey, door),
+    move(monkey, box),
+    push(box, middle),
+    climb(monkey, box),
+    grab(monkey, banana).
+
+move(monkey, box).
+push(box, middle).
+climb(monkey, box).
+grab(monkey, banana).
