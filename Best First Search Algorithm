@@ -1,0 +1,29 @@
+% Sample Graph with heuristic
+edge(a, b, 1).
+edge(a, c, 3).
+edge(b, d, 1).
+edge(c, d, 1).
+heuristic(a, 3).
+heuristic(b, 2).
+heuristic(c, 1).
+heuristic(d, 0).
+
+best_first(Start, Goal) :- bfs([[Start]], Goal, Path), write(Path).
+
+bfs([[Goal|Visited]|_], Goal, [Goal|Visited]).
+bfs([[Current|Visited]|Rest], Goal, Path) :-
+    findall([Next,Current|Visited],
+            (edge(Current, Next, _), \+ member(Next, Visited)),
+            Children),
+    append(Rest, Children, NewQueue),
+    sort_queue(NewQueue, Sorted),
+    bfs(Sorted, Goal, Path).
+
+sort_queue(Q, Sorted) :- predsort(compare_h, Q, Sorted).
+
+compare_h(<, P1, P2) :-
+    P1 = [N1|_], P2 = [N2|_],
+    heuristic(N1, H1),
+    heuristic(N2, H2),
+    H1 < H2.
+compare_h(>, _, _).
