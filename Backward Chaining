@@ -1,0 +1,5 @@
+goal(c).
+goal(b) :- goal(a).
+goal(a).
+
+solve(X) :- goal(X).
