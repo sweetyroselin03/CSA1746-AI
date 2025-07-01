@@ -1,0 +1,14 @@
+def vacuum_world():
+    rooms = {'A': 'dirty', 'B': 'dirty'}
+    location = 'A'
+
+    while 'dirty' in rooms.values():
+        print(f"Vacuum at Room {location}, Room state: {rooms[location]}")
+        if rooms[location] == 'dirty':
+            rooms[location] = 'clean'
+            print(f"Cleaned Room {location}")
+        location = 'B' if location == 'A' else 'A'
+
+    print("All rooms are clean now.")
+
+vacuum_world()
