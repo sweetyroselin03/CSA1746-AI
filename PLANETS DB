@@ -1,0 +1,8 @@
+planet(mercury, small, 0.39).
+planet(venus, small, 0.72).
+planet(earth, small, 1.00).
+planet(mars, small, 1.52).
+planet(jupiter, large, 5.20).
+planet(saturn, large, 9.58).
+planet(uranus, large, 19.22).
+planet(neptune, large, 30.05).
